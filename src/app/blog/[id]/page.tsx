@@ -9,7 +9,7 @@ interface BlogDetail {
 
 export default async function BlogDetail({ params }: { params: { id: string }}) {
   const res = await fetch(`http://localhost:3000/api/blogid?id=${params.id}`)
-  const blogDetail = res.status === 200 && await res.json()
+  const blogDetail = await res.json()
 
   return (
     <div className="w-[50%] m-auto mt-[100px]">
