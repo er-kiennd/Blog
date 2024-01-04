@@ -10,11 +10,8 @@ interface PostDetail {
 export default function PostDetail({ postDetail } : { postDetail: PostDetail }) {
 
   return (
-    <>
-      <div className="flex justify-between">
-        <Link href="/" className="text-[32px] font-semibold">
-          Home
-        </Link>
+    <div className="mt-[100px] mb-[200px]">
+      <div className="flex justify-end">
         <Link className="text-[32px] font-semibold" href="/blog">Back</Link>
       </div>
 
@@ -28,6 +25,6 @@ export default function PostDetail({ postDetail } : { postDetail: PostDetail }) 
       </div>
       <hr />
       <p className="my-[24px]">{postDetail?.body}</p>
-    </>
+    </div>
   )
 }

@@ -17,7 +17,7 @@ interface Blog {
 
 export default function Post({ post }: { post: Blog[] }) {
   const [listBlog, setListBlog] = React.useState<Blog[]>([])
-  const [skip, setSkip] = React.useState(0)
+  const [skip, setSkip] = React.useState(10)
   const [totalBlog, setTotalBlog] = React.useState<number>()
 
   const getData = async () => {
@@ -42,14 +42,11 @@ export default function Post({ post }: { post: Blog[] }) {
 
   React.useEffect(() => {
     setListBlog(post)
-  }, [skip])
+  }, [])
 
   return (
     <>
       <div className="w-[50%] m-auto mt-[100px]">
-        <Link href="/" className="text-[32px] font-semibold">
-          Home
-        </Link>
         <div className="mt-[50px]">
           {listBlog?.map((item: Blog) => (
             <div key={item.id} className="mb-[100px]">
