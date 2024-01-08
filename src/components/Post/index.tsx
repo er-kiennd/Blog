@@ -3,12 +3,6 @@
 import React from 'react'
 import Link from 'next/link'
 
-interface Post {
-  id: number
-  title: string
-  body: string
-}
-
 interface Blog {
   id: number
   title: string
@@ -17,7 +11,7 @@ interface Blog {
 
 export default function Post({ post }: { post: Blog[] }) {
   const [listBlog, setListBlog] = React.useState<Blog[]>([])
-  const [skip, setSkip] = React.useState(10)
+  const [skip, setSkip] = React.useState<number>(10)
   const [totalBlog, setTotalBlog] = React.useState<number>()
 
   const getData = async () => {

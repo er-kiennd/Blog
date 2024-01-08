@@ -1,12 +1,6 @@
 import React from 'react'
 import Post from '@/components/Post'
 
-interface Blog {
-  id: number
-  title: string
-  body: string
-}
-
 export default async function Blog() {
 
   const res = await fetch(
