@@ -2,7 +2,8 @@ import React from 'react'
 import PostDetail from '@/components/PostDetail'
 
 export default async function BlogDetail({ params }: { params: { id: string }}) {
-  const res = await fetch(`http://localhost:3000/api/blogid?id=${params.id}`)
+  const urlApi = process.env.NEXT_APP_URL_API
+  const res = await fetch(`${urlApi}/api/blogid?id=${params.id}`)
   const blogDetail = await res.json()
 
   return (

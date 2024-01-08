@@ -13,10 +13,11 @@ export default function Post({ post }: { post: Blog[] }) {
   const [listBlog, setListBlog] = React.useState<Blog[]>([])
   const [skip, setSkip] = React.useState<number>(10)
   const [totalBlog, setTotalBlog] = React.useState<number>()
+  const urlApi = process.env.NEXT_APP_URL_API
 
   const getData = async () => {
     const res = await fetch(
-      `http://localhost:3000/api/blog?limit=10&skip=${skip}`
+      `${urlApi}/api/blog?limit=10&skip=${skip}`
     )
     const data = await res.json()
     setTotalBlog(data.total)
