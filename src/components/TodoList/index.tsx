@@ -1,14 +1,14 @@
 'use client'
 
 import React from 'react'
-import { RootState } from '@/redux/store'; 
-import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from '@/redux/slice/todoSlice';
-import { Todo } from '@/types/TodoList';
+import { RootState } from '@/redux/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { addTodo, deleteTodo } from '@/redux/slice/todoSlice'
+import { Todo } from '@/types/TodoList'
 
 export default function TodoList() {
   const dispatch = useDispatch()
-  const todos = useSelector((state: RootState) => state.todos.todos);
+  const todos = useSelector((state: RootState) => state.todos.todos)
   const [valueInput, setValueInput] = React.useState<string>('')
 
   const handleChangeInput = (e: any) => {
@@ -19,13 +19,17 @@ export default function TodoList() {
     if (valueInput.trim() !== '') {
       const newTodo: Todo[] = [
         {
-          id: 5,
+          id: todos.length + 1,
           title: valueInput.trim()
         }
       ]
       dispatch(addTodo(newTodo))
       setValueInput('')
     }
+  }
+
+  const handleDeleteTodo = (id: number) => {
+    dispatch(deleteTodo(id))
   }
 
   return (
@@ -37,13 +41,30 @@ export default function TodoList() {
         <input
           className="px-[10px] py-[12px] w-[50%] border-[1px]"
           placeholder="Enter your content"
+          value={valueInput}
           onChange={handleChangeInput}
         />
-        <button className="px-[24px] py-[12px] bg-[#257895] text-white font-semibold rounded-[5px]" onClick={handleAddTodoList}>
+        <button
+          className="px-[24px] py-[12px] bg-[#257895] text-white font-semibold rounded-[5px]"
+          onClick={handleAddTodoList}
+        >
           Add
         </button>
       </div>
-      <div className="px-[24px] mt-[100px]"></div>
+      <div className="px-[32px] mt-[100px]">
+        <div>
+          {todos.map((item, index) => (
+            <div className="mb-8 flex justify-between items-center" key={item.id + index}>
+              <li className="text-[20px] font-medium list-disc">
+                {item.title}
+              </li>
+              <button className="px-[24px] py-[10px] bg-[#245396] text-white rounded-[5px]" onClick={() => handleDeleteTodo(item.id)}>
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
