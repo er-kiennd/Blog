@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 interface Blog {
   id: number
@@ -13,11 +14,12 @@ export default function Post({ post }: { post: Blog[] }) {
   const [listBlog, setListBlog] = React.useState<Blog[]>([])
   const [skip, setSkip] = React.useState<number>(10)
   const [totalBlog, setTotalBlog] = React.useState<number>()
-  const urlApi = process.env.NEXT_APP_URL_API
+  const params = useParams()
+  // const urlApi = process.env.NEXT_APP_URL_API
 
   const getData = async () => {
     const res = await fetch(
-      `${urlApi}/api/blog?limit=10&skip=${skip}`
+      `http://localhost:3000/api/blog?limit=10&skip=${skip}`
     )
     const data = await res.json()
     setTotalBlog(data.total)
@@ -45,7 +47,7 @@ export default function Post({ post }: { post: Blog[] }) {
         <div className="mt-[50px]">
           {listBlog?.map((item: Blog) => (
             <div key={item.id} className="mb-[100px]">
-              <Link href={`/blog/${item.id}`} className="mb-[42px] underline">
+              <Link href={`/${params.lang}/blog/${item.id}`} className="mb-[42px] underline">
                 <p className="text-[32px] list-disc">{item.title}</p>
               </Link>
               <p>{item.body}</p>

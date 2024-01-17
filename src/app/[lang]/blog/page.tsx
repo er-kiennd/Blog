@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '@/components/Post'
+import Post from '@/app/[lang]/components/Post'
 
 export default async function Blog() {
   const urlApi = process.env.NEXT_APP_URL_API

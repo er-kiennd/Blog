@@ -1,5 +1,5 @@
 import React from 'react'
-import PostDetail from '@/components/PostDetail'
+import PostDetail from '@/app/[lang]/components/PostDetail'
 
 export default async function BlogDetail({ params }: { params: { id: string }}) {
   const urlApi = process.env.NEXT_APP_URL_API

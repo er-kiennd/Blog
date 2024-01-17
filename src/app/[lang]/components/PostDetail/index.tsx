@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 interface PostDetail {
   title?: string,
@@ -8,11 +11,12 @@ interface PostDetail {
 }
 
 export default function PostDetail({ postDetail } : { postDetail: PostDetail }) {
+  const params = useParams()
 
   return (
     <div className="mt-[100px] mb-[200px]">
       <div className="flex justify-end">
-        <Link className="text-[32px] font-semibold" href="/blog">Back</Link>
+        <Link className="text-[32px] font-semibold" href={`/${params.lang}/blog`}>Back</Link>
       </div>
 
       <p className="mt-[70px] text-[32px] font-semibold">{postDetail?.title}</p>
