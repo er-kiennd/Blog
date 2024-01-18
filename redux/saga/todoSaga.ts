@@ -1,7 +1,7 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { addTodo, addTodoSuccess, deleteTodo, deleteTodoSuccess } from '../slice/todoSlice';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { Todo } from '@/types/TodoList';
+import { Todo } from '../../types/TodoList';
 
 function* handleAddTodo(action: PayloadAction<Todo[]>) {
   yield put(addTodoSuccess(action.payload));

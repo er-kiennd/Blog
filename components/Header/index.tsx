@@ -2,15 +2,15 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { type getDictionary } from '../../../../../get-dictionary'
-import { i18n, type Locale } from '../../../../../i18n-config'
+import { type getDictionary } from '../../get-dictionary'
+import { i18n, type Locale } from '../../i18n-config'
 import { usePathname, useRouter } from 'next/navigation'
 
 export default function Header({
   dictionary,
   params
 }: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>['home-page'],
+  dictionary: Awaited<ReturnType<typeof getDictionary>>['header'],
   params: string
 }) {
   const pathName = usePathname()

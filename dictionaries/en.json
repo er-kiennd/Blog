@@ -1,11 +1,13 @@
 {
-  "home-page": {
+  "home-page": {    
+    "go_to_blog": "Go to blog list",
+    "go_to_todo": "Go to todo list"
+  },
+  "header": {
     "home": "Home",
     "about_us": "About us",
     "news": "News",
     "service": "Service",
-    "contact": "Contact",
-    "go_to_blog": "Go to blog list",
-    "go_to_todo": "Go to todo list"
+    "contact": "Contact"
   }
 }

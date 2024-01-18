@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { Locale } from '../../../i18n-config';
-import { getDictionary } from '../../../get-dictionary';
+import { Locale } from '../../i18n-config';
+import { getDictionary } from '../../get-dictionary';
 
 export default async function Home({ params }: { params: {lang: Locale }}) {
   const dictionary = await getDictionary(params.lang);

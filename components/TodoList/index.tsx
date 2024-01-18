@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react'
-import { RootState } from '@/redux/store'
+import { RootState } from '../../redux/store'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, deleteTodo } from '@/redux/slice/todoSlice'
-import { Todo } from '@/types/TodoList'
+import { addTodo, deleteTodo } from '../../redux/slice/todoSlice'
+import { Todo } from '../../types/TodoList'
 
 export default function TodoList() {
   const dispatch = useDispatch()

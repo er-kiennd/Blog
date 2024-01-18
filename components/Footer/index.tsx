@@ -7,7 +7,7 @@ function Footer() {
             {/* Content top */}
             <div className="flex justify-between w-[1312px] py-[42px] m-auto border-b-[1px] border-solid border-[#13131329]">
                 <div className="w-[20%]">
-                    <Image src="/next.svg" alt="logo" width={148} height={44}/>
+                    <Image src="/public/next.svg" alt="logo" width={148} height={44}/>
                     <p className="mt-[16px] text-[16px] font-medium leading-6 text-[#13131399]">
                         Our vision is to provide convenience and help increase your sales business.
                     </p>
